@@ -1,21 +1,21 @@
 #!/bin/awk
 BEGIN{
   FS=","
+  print ":- discontiguous persona/1."
+  print ":- discontiguous progenitor/2."
 }
   {
-if($1 != "nombre y apellido"){
   
   print "persona(\""$1"\")."
-  if ($7){
+  if ($7 && $7 !=""){
 
-      print "progenitor(\""$7"\")."
+      print "progenitor(\""$7"\",""\""$1"\")."
   }
-  if ($8){
-      print "progenitor(\""$8"\")."
+  if ($8 && $8 !=""){
 
+      print "progenitor(\""$8"\",""\""$1"\")."
   }
 
-}
 
 
     }
